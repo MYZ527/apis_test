@@ -1,4 +1,4 @@
-package purchases
+package purchase
 
 import (
 	"eirc.app/internal/v1/middleware"

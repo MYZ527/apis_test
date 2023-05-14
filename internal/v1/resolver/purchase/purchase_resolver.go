@@ -1,4 +1,4 @@
-package purchases
+package purchase
 
 import (
 	"encoding/json"
@@ -7,7 +7,7 @@ import (
 	"eirc.app/internal/pkg/code"
 	"eirc.app/internal/pkg/log"
 	"eirc.app/internal/pkg/util"
-	purchaseModel "eirc.app/internal/v1/structure/purchase"
+	purchaseModel "eirc.app/internal/v1/structure/purchases"
 	"gorm.io/gorm"
 )
 
@@ -30,8 +30,8 @@ func (r *resolver) List(input *purchaseModel.Fields) interface{} {
 	output := &purchaseModel.List{}
 	output.Limit = input.Limit
 	output.Page = input.Page
-	quantity, purcahse, err := r.PurchaseService.List(input)
-	purchaseByte, err := json.Marshal(purcahse)
+	quantity, purchase, err := r.PurchaseService.List(input)
+	purchaseByte, err := json.Marshal(purchase)
 	if err != nil {
 		log.Error(err)
 
@@ -63,16 +63,16 @@ func (r *resolver) GetByID(input *purchaseModel.Field) interface{} {
 		return code.GetCodeMessage(code.InternalServerError, err)
 	}
 
-	frontCompany := &purchaseModel.Single{}
+	frontcompany := &purchaseModel.Single{}
 	companyByte, _ := json.Marshal(base)
-	err = json.Unmarshal(companyByte, &frontCompany)
+	err = json.Unmarshal(companyByte, &frontcompany)
 	if err != nil {
 		log.Error(err)
 
 		return code.GetCodeMessage(code.InternalServerError, err)
 	}
 
-	return code.GetCodeMessage(code.Successful, frontCompany)
+	return code.GetCodeMessage(code.Successful, frontcompany)
 }
 
 func (r *resolver) Deleted(input *purchaseModel.Updated) interface{} {

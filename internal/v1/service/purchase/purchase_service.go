@@ -1,11 +1,11 @@
-package purchases
+package purchase
 
 import (
 	"encoding/json"
 
 	"eirc.app/internal/pkg/log"
 	"eirc.app/internal/pkg/util"
-	model "eirc.app/internal/v1/structure/purchase"
+	model "eirc.app/internal/v1/structure/purchases"
 )
 
 func (s *service) Created(input *model.Created) (output *model.Base, err error) {

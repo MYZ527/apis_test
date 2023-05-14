@@ -1,4 +1,4 @@
-package purchases
+package purchase
 
 import (
 	"net/http"
@@ -7,7 +7,7 @@ import (
 	"eirc.app/internal/pkg/log"
 	"eirc.app/internal/pkg/util"
 	preset "eirc.app/internal/v1/presenter"
-	purchases "eirc.app/internal/v1/structure/purchase"
+	purchases "eirc.app/internal/v1/structure/purchases"
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 )
@@ -38,7 +38,7 @@ func (p *presenter) Created(ctx *gin.Context) {
 		return
 	}
 
-	codeMessage := p.purchaseResolver.Created(trx, input)
+	codeMessage := p.PurchaseResolver.Created(trx, input)
 	ctx.JSON(http.StatusOK, codeMessage)
 }
 
@@ -73,7 +73,7 @@ func (p *presenter) List(ctx *gin.Context) {
 		input.Limit = preset.DefaultLimit
 	}
 
-	codeMessage := p.purchaseResolver.List(input)
+	codeMessage := p.PurchaseResolver.List(input)
 	ctx.JSON(http.StatusOK, codeMessage)
 }
 
@@ -101,7 +101,7 @@ func (p *presenter) GetByID(ctx *gin.Context) {
 		return
 	}
 
-	codeMessage := p.purchaseResolver.GetByID(input)
+	codeMessage := p.PurchaseResolver.GetByID(input)
 	ctx.JSON(http.StatusOK, codeMessage)
 }
 
@@ -132,7 +132,7 @@ func (p *presenter) Delete(ctx *gin.Context) {
 		return
 	}
 
-	codeMessage := p.purchaseResolver.Deleted(input)
+	codeMessage := p.PurchaseResolver.Deleted(input)
 	ctx.JSON(http.StatusOK, codeMessage)
 }
 
@@ -164,6 +164,6 @@ func (p *presenter) Updated(ctx *gin.Context) {
 		return
 	}
 
-	codeMessage := p.purchaseResolver.Updated(input)
+	codeMessage := p.PurchaseResolver.Updated(input)
 	ctx.JSON(http.StatusOK, codeMessage)
 }

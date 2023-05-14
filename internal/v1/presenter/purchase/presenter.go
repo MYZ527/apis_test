@@ -1,7 +1,7 @@
-package purchases
+package purchase
 
 import (
-	purchases "eirc.app/internal/v1/resolver/purchase"
+	purchase "eirc.app/internal/v1/resolver/purchase"
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 )
@@ -15,11 +15,11 @@ type Presenter interface {
 }
 
 type presenter struct {
-	purchaseResolver purchases.Resolver
+	PurchaseResolver purchase.Resolver
 }
 
 func New(db *gorm.DB) Presenter {
 	return &presenter{
-		purchaseResolver: purchases.New(db),
+		PurchaseResolver: purchase.New(db),
 	}
 }

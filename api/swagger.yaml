@@ -218,11 +218,8 @@ definitions:
         description: 公司統一編號
         type: integer
     type: object
-  purchases.Created:
+  purchase.Created:
     properties:
-      Product:
-        description: 品名
-        type: string
       applicant:
         description: 申請人
         type: string
@@ -232,6 +229,9 @@ definitions:
       price:
         description: 單價
         type: integer
+      product:
+        description: 品名
+        type: string
       requisition_department:
         description: 請購部門
         type: string
@@ -239,14 +239,14 @@ definitions:
         description: 請購數量
         type: integer
     required:
-    - Product
     - applicant
     - company_name
     - price
+    - product
     - requisition_department
     - requisition_quantity
     type: object
-  purchases.List:
+  purchase.List:
     properties:
       limit:
         description: 筆數(請從1開始帶入,最高上限20)
@@ -295,7 +295,7 @@ definitions:
     - limit
     - page
     type: object
-  purchases.Single:
+  purchase.Single:
     properties:
       applicant:
         description: 申請人
@@ -334,7 +334,7 @@ definitions:
         description: 更新者
         type: string
     type: object
-  purchases.Updated:
+  purchase.Updated:
     properties:
       applicant:
         description: 申請人
@@ -948,7 +948,7 @@ paths:
             - $ref: '#/definitions/code.SuccessfulMessage'
             - properties:
                 body:
-                  $ref: '#/definitions/purchases.List'
+                  $ref: '#/definitions/purchase.List'
               type: object
         "415":
           description: 必要欄位帶入錯誤
@@ -986,7 +986,7 @@ paths:
         name: '*'
         required: true
         schema:
-          $ref: '#/definitions/purchases.Created'
+          $ref: '#/definitions/purchase.Created'
       produces:
       - application/json
       responses:
@@ -1094,7 +1094,7 @@ paths:
             - $ref: '#/definitions/code.SuccessfulMessage'
             - properties:
                 body:
-                  $ref: '#/definitions/purchases.Single'
+                  $ref: '#/definitions/purchase.Single'
               type: object
         "415":
           description: 必要欄位帶入錯誤
@@ -1137,7 +1137,7 @@ paths:
         name: '*'
         required: true
         schema:
-          $ref: '#/definitions/purchases.Updated'
+          $ref: '#/definitions/purchase.Updated'
       produces:
       - application/json
       responses:

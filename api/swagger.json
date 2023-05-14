@@ -1023,7 +1023,7 @@
                                     "type": "object",
                                     "properties": {
                                         "body": {
-                                            "$ref": "#/definitions/purchases.List"
+                                            "$ref": "#/definitions/purchase.List"
                                         }
                                     }
                                 }
@@ -1094,7 +1094,7 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/purchases.Created"
+                            "$ref": "#/definitions/purchase.Created"
                         }
                     }
                 ],
@@ -1197,7 +1197,7 @@
                                     "type": "object",
                                     "properties": {
                                         "body": {
-                                            "$ref": "#/definitions/purchases.Single"
+                                            "$ref": "#/definitions/purchase.Single"
                                         }
                                     }
                                 }
@@ -1360,7 +1360,7 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/purchases.Updated"
+                            "$ref": "#/definitions/purchase.Updated"
                         }
                     }
                 ],
@@ -1727,21 +1727,17 @@
                 }
             }
         },
-        "purchases.Created": {
+        "purchase.Created": {
             "type": "object",
             "required": [
-                "Product",
                 "applicant",
                 "company_name",
                 "price",
+                "product",
                 "requisition_department",
                 "requisition_quantity"
             ],
             "properties": {
-                "Product": {
-                    "description": "品名",
-                    "type": "string"
-                },
                 "applicant": {
                     "description": "申請人",
                     "type": "string"
@@ -1754,6 +1750,10 @@
                     "description": "單價",
                     "type": "integer"
                 },
+                "product": {
+                    "description": "品名",
+                    "type": "string"
+                },
                 "requisition_department": {
                     "description": "請購部門",
                     "type": "string"
@@ -1764,7 +1764,7 @@
                 }
             }
         },
-        "purchases.List": {
+        "purchase.List": {
             "type": "object",
             "required": [
                 "limit",
@@ -1832,7 +1832,7 @@
                 }
             }
         },
-        "purchases.Single": {
+        "purchase.Single": {
             "type": "object",
             "properties": {
                 "applicant": {
@@ -1885,7 +1885,7 @@
                 }
             }
         },
-        "purchases.Updated": {
+        "purchase.Updated": {
             "type": "object",
             "properties": {
                 "applicant": {

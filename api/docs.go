@@ -1027,7 +1027,7 @@ const docTemplate = `{
                                     "type": "object",
                                     "properties": {
                                         "body": {
-                                            "$ref": "#/definitions/purchases.List"
+                                            "$ref": "#/definitions/purchase.List"
                                         }
                                     }
                                 }
@@ -1098,7 +1098,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/purchases.Created"
+                            "$ref": "#/definitions/purchase.Created"
                         }
                     }
                 ],
@@ -1201,7 +1201,7 @@ const docTemplate = `{
                                     "type": "object",
                                     "properties": {
                                         "body": {
-                                            "$ref": "#/definitions/purchases.Single"
+                                            "$ref": "#/definitions/purchase.Single"
                                         }
                                     }
                                 }
@@ -1364,7 +1364,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/purchases.Updated"
+                            "$ref": "#/definitions/purchase.Updated"
                         }
                     }
                 ],
@@ -1731,21 +1731,17 @@ const docTemplate = `{
                 }
             }
         },
-        "purchases.Created": {
+        "purchase.Created": {
             "type": "object",
             "required": [
-                "Product",
                 "applicant",
                 "company_name",
                 "price",
+                "product",
                 "requisition_department",
                 "requisition_quantity"
             ],
             "properties": {
-                "Product": {
-                    "description": "品名",
-                    "type": "string"
-                },
                 "applicant": {
                     "description": "申請人",
                     "type": "string"
@@ -1758,6 +1754,10 @@ const docTemplate = `{
                     "description": "單價",
                     "type": "integer"
                 },
+                "product": {
+                    "description": "品名",
+                    "type": "string"
+                },
                 "requisition_department": {
                     "description": "請購部門",
                     "type": "string"
@@ -1768,7 +1768,7 @@ const docTemplate = `{
                 }
             }
         },
-        "purchases.List": {
+        "purchase.List": {
             "type": "object",
             "required": [
                 "limit",
@@ -1836,7 +1836,7 @@ const docTemplate = `{
                 }
             }
         },
-        "purchases.Single": {
+        "purchase.Single": {
             "type": "object",
             "properties": {
                 "applicant": {
@@ -1889,7 +1889,7 @@ const docTemplate = `{
                 }
             }
         },
-        "purchases.Updated": {
+        "purchase.Updated": {
             "type": "object",
             "properties": {
                 "applicant": {

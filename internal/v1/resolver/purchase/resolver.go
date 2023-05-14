@@ -1,8 +1,8 @@
-package purchases
+package purchase
 
 import (
 	purchases "eirc.app/internal/v1/service/purchase"
-	model "eirc.app/internal/v1/structure/purchase"
+	model "eirc.app/internal/v1/structure/purchases"
 	"gorm.io/gorm"
 )
 

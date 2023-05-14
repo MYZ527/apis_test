@@ -1,4 +1,4 @@
-package purchases
+package purchase
 
 import (
 	"time"
@@ -103,7 +103,7 @@ type Created struct {
 	// 請購部門
 	Requisition_department string `json:"requisition_department" binding:"required" validate:"required"`
 	// 品名
-	Product string `json:"Product" binding:"required" validate:"required"`
+	Product string `json:"product" binding:"required" validate:"required"`
 	// 請購數量
 	Requisition_quantity int64 `json:"requisition_quantity" binding:"required" validate:"required"`
 	// 單價
@@ -176,9 +176,9 @@ type Updated struct {
 	// 品名
 	Product *string `json:"product,omitempty"`
 	// 請購數量
-	Requisition_quantity int64 `json:"requisition_quantity,omitempty"`
+	Requisition_quantity *int64 `json:"requisition_quantity,omitempty"`
 	// 單價
-	Price int64 `json:"price,omitempty"`
+	Price *int64 `json:"price,omitempty"`
 	// 更新者
 	Updated_By *string `json:"updated_by,omitempty" swaggerignore:"true"`
 	// 是否刪除
