@@ -121,7 +121,7 @@ func (p *presenter) GetByID(ctx *gin.Context) {
 func (p *presenter) Delete(ctx *gin.Context) {
 	// Todo 將UUID改成登入的使用者
 	updatedBy := util.GenerateUUID()
-	Purchase_ID := ctx.Param("Purchase_ID")
+	Purchase_ID := ctx.Param("purchase_ID")
 	input := &purchases.Updated{}
 	input.Purchase_ID = Purchase_ID
 	input.Updated_By = util.PointerString(updatedBy)
@@ -153,7 +153,7 @@ func (p *presenter) Delete(ctx *gin.Context) {
 func (p *presenter) Updated(ctx *gin.Context) {
 	// Todo 將UUID改成登入的使用者
 	updatedBy := util.GenerateUUID()
-	Purchase_ID := ctx.Param("Purchase_ID")
+	Purchase_ID := ctx.Param("purchase_ID")
 	input := &purchases.Updated{}
 	input.Purchase_ID = Purchase_ID
 	input.Updated_By = util.PointerString(updatedBy)

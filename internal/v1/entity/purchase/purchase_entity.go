@@ -65,7 +65,7 @@ func (e *entity) Deleted(input *model.Table) (err error) {
 }
 
 func (e *entity) Updated(input *model.Table) (err error) {
-	err = e.db.Model(&model.Table{}).Save(&input).Error
+	err = e.db.Model(&model.Table{}).Where("purchase_id = ?", input.Purchase_ID).Save(&input).Error
 
 	return err
 }
